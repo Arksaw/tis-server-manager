@@ -1,0 +1,23 @@
+{
+  "name": "tis-server-manager",
+  "version": "0.0.1",
+  "description": "Manages clusters of tis-servers",
+  "private": true,
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node"
+  },
+  "repository": "",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "author": "ZackMattor",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "pm2": "^1.1.2"
+  }
+}
