@@ -1,9 +1,6 @@
 var pm2 = require('pm2');
 var express = require('express');
 
-var app = express();
-app.listen(8100);
-
 var serverStore = {
   interval: null,
   list: [],
@@ -22,6 +19,10 @@ var serverStore = {
         });
       });
     });
+  },
+
+  cleanUp() {
+    pm2.disconnect();
   },
 
   poll(cb) {
@@ -63,15 +64,4 @@ var serverStore = {
   }
 };
 
-serverStore.init().then(() => {
-  // respond with "hello world" when a GET request is made to the homepage
-  app.get('/public_servers', function(req, res) {
-    res.json(serverStore.list);
-  });
-});
-
-process.on('SIGINT', function() {
-  pm2.disconnect();
-
-  process.exit();
-});
+module.exports = serverStore;
