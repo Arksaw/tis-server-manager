@@ -1,5 +1,4 @@
 var pm2 = require('pm2');
-var express = require('express');
 
 var serverStore = {
   interval: null,
