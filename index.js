@@ -26,6 +26,7 @@ app.use(function (req, res, next) {
 
 serverStore.init().then(() => {
   serverStore.poll();
+  serverStore.create();
 
   app.get('/ping', function(req, res) {
     res.send('pong');

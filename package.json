@@ -19,5 +19,8 @@
   "dependencies": {
     "express": "^4.13.4",
     "pm2": "^1.1.2"
+  },
+  "devDependencies": {
+    "node-uuid": "^1.4.7"
   }
 }

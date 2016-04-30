@@ -1,5 +1,6 @@
 var pm2 = require('pm2');
 var express = require('express');
+var uuid = require('node-uuid');
 
 var serverStore = {
   interval: null,
@@ -23,6 +24,20 @@ var serverStore = {
 
   cleanUp() {
     pm2.disconnect();
+  },
+
+  create() {
+    console.log('Creating server...');
+
+    var id = uuid.v4();
+
+    pm2.start('../server/index.js',{
+      name: 'tis-server-' + id,
+      force: true
+    }, (err) => {
+      console.log('ERROR');
+      console.log(err);
+    });
   },
 
   poll(cb) {
